@@ -9,10 +9,21 @@
 import Foundation
 
 enum R {
+  // Person
   static let Person = "Person"
   static let firstName = "firstName"
   static let lastName = "lastName"
   static let age = "age"
+  static let dogs = "dogs"
+  
+  // Dog
+  
+  static let Dog = "Dog"
+  static let name = "name" 
+  static let owner = "owner"
+  
+  // Subscription
   static let subscriptionID = "person-changes"
   static let subscriptionWasCreated = "subscriptionWasCreated"
+
 }
