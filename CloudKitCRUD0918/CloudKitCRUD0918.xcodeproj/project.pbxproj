@@ -15,6 +15,7 @@
 		AA5015612152CD6700E4622D /* CKRecord+IsCurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5015602152CD6700E4622D /* CKRecord+IsCurrentUser.swift */; };
 		AA5015632152DA2E00E4622D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5015622152DA2E00E4622D /* Person.swift */; };
 		AA5015652152DB3100E4622D /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5015642152DB3100E4622D /* Dog.swift */; };
+		AA50156E2153DFB000E4622D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA50156D2153DFB000E4622D /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		AA5015602152CD6700E4622D /* CKRecord+IsCurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKRecord+IsCurrentUser.swift"; sourceTree = "<group>"; };
 		AA5015622152DA2E00E4622D /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		AA5015642152DB3100E4622D /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		AA50156B2153DF8900E4622D /* CloudKitCRUD0918.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloudKitCRUD0918.entitlements; sourceTree = "<group>"; };
+		AA50156D2153DFB000E4622D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA50156E2153DFB000E4622D /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +50,7 @@
 			children = (
 				AA50154D2152CCC700E4622D /* CloudKitCRUD0918 */,
 				AA50154C2152CCC700E4622D /* Products */,
+				AA50156C2153DFB000E4622D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +65,7 @@
 		AA50154D2152CCC700E4622D /* CloudKitCRUD0918 */ = {
 			isa = PBXGroup;
 			children = (
+				AA50156B2153DF8900E4622D /* CloudKitCRUD0918.entitlements */,
 				AA50154E2152CCC700E4622D /* AppDelegate.swift */,
 				AA5015692152E1BB00E4622D /* Model */,
 				AA5015662152E18100E4622D /* Supplementary Files */,
@@ -87,6 +93,14 @@
 				AA5015642152DB3100E4622D /* Dog.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		AA50156C2153DFB000E4622D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA50156D2153DFB000E4622D /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,6 +135,17 @@
 				TargetAttributes = {
 					AA50154A2152CCC700E4622D = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -310,6 +335,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CloudKitCRUD0918/CloudKitCRUD0918.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D3DA9G4XW;
 				INFOPLIST_FILE = CloudKitCRUD0918/Info.plist;
@@ -328,6 +354,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CloudKitCRUD0918/CloudKitCRUD0918.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6D3DA9G4XW;
 				INFOPLIST_FILE = CloudKitCRUD0918/Info.plist;

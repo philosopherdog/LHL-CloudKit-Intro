@@ -1,4 +1,5 @@
 build-lists: true
+autoscale: true
 
 # [fit]CloudKit
 
@@ -17,7 +18,7 @@ build-lists: true
 
 ##  [fit]Parts of CloudKit
 
---- 
+---
 
 ## [fit]CKContainer
 - There is one default CloudKit Container per app.
@@ -53,7 +54,7 @@ build-lists: true
 - `NSData` should only be used for binary data of a few kilobytes.
 - Use `CKAsset` for binary files that are larger than a few kilobytes.
 
---- 
+---
 - `CKReference` creates a backlink to related record by storing the id of the target object.
 - `CKReference` supports cascade deletion.
 - 1 to many relationships are supported.
@@ -85,16 +86,16 @@ build-lists: true
 
 - Used to create a many-to-one relationship between records in a database.
 - A reference stores information about the one record that is the target of the reference.
-- The reference object is saved in the fields of one or more records to create a link from those records to the target. 
+- The reference object is saved in the fields of one or more records to create a link from those records to the target.
 - Both records must be located in the same zone.
 
 ---
 
-- For instance, let's say our employee has a department. 
+- For instance, let's say our employee has a department.
 - Make a `CKReference` out of a `department` record.
-- `department` is the target object. 
+- `department` is the target object.
 - We then add this reference (backlink) to any employee objects that are in that department.
-- When creating a CKReference we have to specify the "delete policy". 
+- When creating a CKReference we have to specify the "delete policy".
 - If the target object is deleted (department in our example) does this remove all employees in that department or not?
 
 ---
@@ -147,7 +148,7 @@ build-lists: true
 - `CKDatabaseSubscription` (iOS 10+) only works on private + shared databases and allows you to be notified of changes across the db.
 - Make sure to set the `notificationInfo` property on the subscription instance.
 
---- 
+---
 ## More...
 - Use the `application(_: didReceiveRemoteNotification: fetchCompletionHandler:)` to receive your notification callback.
 - Inside the completion handler pass the userInfo key to a `CKNotification(fromRemoteNotificationDictionary:)` in order to check the `subscriptionID`.

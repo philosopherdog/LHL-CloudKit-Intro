@@ -9,7 +9,7 @@
 import Foundation
 import CloudKit
 
-final class Person {
+final class Person: CustomStringConvertible {
   
   static let type = "Person"
   
@@ -33,16 +33,18 @@ final class Person {
     self.dogs = dogs
     self.record = record
     if self.record == nil {
-//      createRecord()
+      createRecord()
     }
   }
   
-//  private func createRecord() {
-//    self.record = CKRecord(recordType: Person.type)
-//    self.record[Key.firstName] = self.firstName
-//    self.record[Key.lastName]
-//  }
-//
+  private func createRecord() {
+    self.record = CKRecord(recordType: Person.type)
+    self.record?[Key.firstName.rawValue] = self.firstName as NSString
+    self.record?[Key.lastName.rawValue] = self.lastName as NSString
+    self.record?[Key.age.rawValue] = self.age as NSNumber
+    self.record?[Key.dogs.rawValue] = self.dogs as NSArray?
+  }
+
   convenience init?(_ record: CKRecord) {
     guard let fn = record[Key.firstName.rawValue] as? String, let ln = record[Key.lastName.rawValue] as? String, let a = record[Key.age.rawValue] as? Int else { return nil }
     var d: [CKRecord.Reference]? = nil
@@ -50,6 +52,10 @@ final class Person {
       d = dogs
     }
     self.init(firstName: fn, lastName: ln, age: a, dogs: d)
+  }
+  
+  var description: String {
+    return "\(firstName) \(lastName) is \(age) years old has \(dogs?.count ?? 0) # of dogs"
   }
   
 }
