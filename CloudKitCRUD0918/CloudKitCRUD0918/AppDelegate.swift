@@ -29,7 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 //    fetchOperation()
 //    createWithReference()
-//    subscription()
+    
+    UNUserNotificationCenter.current().requestAuthorization(options:[.alert, .sound]) {(success, error) in
+      if let error = error { print(#line, error.localizedDescription); return}
+        self.subscription()
+    }
     
     return true
   }
@@ -174,6 +178,8 @@ extension AppDelegate {
     //TODO: add CKModifySubscriptionsOperation to db
     let predicate = NSPredicate(value: true)
     let personSubscription = CKQuerySubscription(recordType: Person.type, predicate: predicate, options: [.firesOnRecordUpdate, .firesOnRecordCreation, .firesOnRecordDeletion])
+    personSubscription.notificationInfo = CKSubscription.NotificationInfo(alertBody: "alert body", title: "my  title")
+    
     let op = CKModifySubscriptionsOperation(subscriptionsToSave: [personSubscription], subscriptionIDsToDelete: nil)
     
     /*
